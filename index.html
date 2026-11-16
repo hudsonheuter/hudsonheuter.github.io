@@ -114,6 +114,17 @@ section{padding-top:72px}
 .thumbs button[aria-current="true"]{opacity:1;outline:2px solid var(--dykem);outline-offset:1px;border-color:var(--dykem)}
 .thumbs img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover}
 
+/* FEA pair inside the nozzle sheet */
+.fea{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:0;padding:0 24px 24px}
+.fea figure{margin:0;min-width:0}
+.fea img{display:block;width:100%;height:auto;background:#fff;border:1px solid var(--line)}
+.fea figcaption{font-size:13px;color:var(--muted);padding-top:8px}
+
+/* launch lug photo, cropped in CSS */
+.lugs{margin:16px 0 0;max-width:54ch}
+.lugs .crop{aspect-ratio:16/10}
+.lugs figcaption{font-size:13px;color:var(--muted);padding-top:8px}
+
 .titleblock{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:0;border-top:1px solid var(--line)}
 .titleblock div{padding:12px 16px;border-left:1px solid var(--line);min-width:0}
 .titleblock div:first-child{border-left:0}
@@ -162,6 +173,7 @@ footer{margin-top:28px;display:flex;justify-content:space-between;gap:12px;flex-
   .facts div:nth-child(n+3),.titleblock div:nth-child(n+3){border-top:1px solid var(--line)}
   .sheet-main{grid-template-columns:minmax(0,1fr);gap:24px;padding:16px}
   .copy-wide{grid-template-columns:minmax(0,1fr);padding:16px 16px 24px}
+  .fea{grid-template-columns:minmax(0,1fr);padding:0 16px 20px}
   .bleed figcaption{padding-inline:16px}
   .now{grid-template-columns:minmax(0,1fr)}
   .rows li{grid-template-columns:minmax(0,1fr);gap:4px}
@@ -197,6 +209,7 @@ footer{margin-top:28px;display:flex;justify-content:space-between;gap:12px;flex-
   <div class="hero">
     <div>
       <h1>Hudson Heuter</h1>
+      <p class="role">Mechanical Engineering, Boston University</p>
       <div class="links">
         <a class="btn primary" href="Hudson_Heuter_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
         <a class="btn" href="https://www.linkedin.com/in/hudson-heuter/" target="_blank" rel="noopener">LinkedIn</a>
@@ -204,7 +217,7 @@ footer{margin-top:28px;display:flex;justify-content:space-between;gap:12px;flex-
       </div>
     </div>
     <figure class="portrait">
-      <img src="headshot2.jpg" width="800" height="800" alt="Hudson Heuter in a dark suit and purple tie">
+      <img src="headshot.jpg" width="800" height="800" alt="Hudson Heuter in a dark suit and purple tie">
     </figure>
   </div>
 
@@ -226,14 +239,24 @@ footer{margin-top:28px;display:flex;justify-content:space-between;gap:12px;flex-
         <figcaption>Nozzle test on the stand, 4.7 seconds.</figcaption>
       </figure>
       <div class="copy-wide">
-        <h3>Rocket Nozzle Intro Project</h3>
+        <h3>Rocket engine nozzle</h3>
         <div class="text">
           <p>A four-person team designed and analyzed a nozzle for the BU Rocket Propulsion Group intro project. I developed the CAD models and FEA plots.</p>
           <p>Design reviews covered the rationale for each choice and whether the part could be made. The design reached a test-ready configuration and went to the test stand.</p>
         </div>
       </div>
+      <div class="fea">
+        <figure>
+          <img src="nozzle-fea-stress.png" width="748" height="541" alt="FEA von Mises stress plot of the flanged nozzle part, peak 577 psi" loading="lazy">
+          <figcaption>FEA, von Mises stress. Peak 577 psi against a 6,670 psi yield strength.</figcaption>
+        </figure>
+        <figure>
+          <img src="nozzle-fea-displacement.png" width="729" height="468" alt="FEA displacement plot of the flanged nozzle part, peak 0.016 mm" loading="lazy">
+          <figcaption>FEA, displacement. Peak 0.016 mm.</figcaption>
+        </figure>
+      </div>
       <dl class="titleblock">
-        <div><dt>Club</dt><dd>BURPG</dd></div>
+        <div><dt>Program</dt><dd>BURPG intro project</dd></div>
         <div><dt>Dates</dt><dd>Jan 2026 to May 2026</dd></div>
         <div><dt>Team</dt><dd>4 people</dd></div>
         <div><dt>Work</dt><dd>CAD, FEA, design reviews</dd></div>
@@ -243,7 +266,7 @@ footer{margin-top:28px;display:flex;justify-content:space-between;gap:12px;flex-
     <article class="sheet" id="shuffler">
       <div class="sheet-main">
         <div class="copy">
-          <h3>Automated Card Shuffler</h3>
+          <h3>Automated card shuffler</h3>
           <p>A motor-driven roller system riffles two halves of a deck together on its own. I modeled the mechanism in SolidWorks and refined it over several rounds of test prints.</p>
           <p>It dispenses a single card in about 70% of shuffle cycles.</p>
         </div>
@@ -259,8 +282,8 @@ footer{margin-top:28px;display:flex;justify-content:space-between;gap:12px;flex-
       <dl class="titleblock">
         <div><dt>Type</dt><dd>Personal project</dd></div>
         <div><dt>Dates</dt><dd>May 2026 to Aug 2026</dd></div>
-        <div><dt>Team</dt><dd>Solo</dd></div>
         <div><dt>Tools</dt><dd>SolidWorks, 3D printing, assembly</dd></div>
+        <div><dt>Result</dt><dd class="big">~70% single-card</dd></div>
       </dl>
     </article>
   </section>
@@ -271,8 +294,13 @@ footer{margin-top:28px;display:flex;justify-content:space-between;gap:12px;flex-
       <article class="job">
         <h3>Argo rocket, BURPG</h3>
         <p>I am machining parts for the BU Rocket Propulsion Group's Argo rocket on a CNC mill.</p>
-        <p>I just finished the launch lugs for the rocket, and I am currently working on machining an adapter for the engine.</p>
-        <ul class="tags"><li class="live">In progress</li><li>CNC mill</li><li>CAM</li></ul>
+        <p>I finished machining the test launch lugs for the cold flow test of the entire rocket. The test was a success.</p>
+        <figure class="lugs">
+          <div class="crop"><img src="launch_lugs.jpg" width="360" height="360" alt="Three machined aluminum launch lugs sitting on a workbench" style="transform:translate(-8.7%,-47%) scale(1.15)"></div>
+          <figcaption>Machined test launch lugs.</figcaption>
+        </figure>
+        <p>Now I am on a three-person team redesigning the launch lugs to make them aerodynamic. We are running trade studies on attachment method, material and profile.</p>
+        <ul class="tags"><li class="live">In progress</li><li>CNC mill</li><li>CAM</li><li>Launch lug redesign</li></ul>
       </article>
       <article class="job">
         <h3>Deskinator</h3>
@@ -287,7 +315,7 @@ footer{margin-top:28px;display:flex;justify-content:space-between;gap:12px;flex-
     <ul class="rows">
       <li><span class="role">Sophomore Chair</span><span class="org">Engineering Student Government</span><span class="when"></span></li>
       <li><span class="role">Executive Board</span><span class="org">Delta Tau Delta</span><span class="when"></span></li>
-      <li><span class="role">Structures Team Member</span><span class="org">BU Rocket Propulsion Group. <a href="#now">Current work</a></span><span class="when">Feb 2025 to present</span></li>
+      <li><span class="role">Structures Engineer</span><span class="org">BU Rocket Propulsion Group. <a href="#now">Current work</a></span><span class="when">Feb 2026 to present</span></li>
     </ul>
   </section>
 
